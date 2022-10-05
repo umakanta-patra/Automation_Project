@@ -95,7 +95,8 @@ fi
 
 if [ ${cron_flag} -eq 0 ]
 then
-    echo "0 0 * * * root /root/Automation_Project/automation.sh" > /etc/cron.d/automation && echo "[INFO] Cronjob has been added."
+    echo "0 0 * * * root /root/Automation_Project/automation.sh" > ${cron_job_file} && echo "[INFO] Cronjob has been added."
+    crontab ${cron_job_file}
 else
     echo "[INFO] Daily Cronjob for /root/Automation_Project/automation.sh exists."
 fi
